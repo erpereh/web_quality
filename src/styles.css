@@ -92,14 +92,16 @@ button {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
+  height: 40px;
+  max-width: min(340px, 42vw);
+  min-width: 0;
   font-family: var(--serif);
-  font-size: 27px;
   letter-spacing: 0;
-  color: white;
+  color: #8e8e8e;
+  overflow: hidden;
 }
 
-.logo-mark,
 .mini-logo {
   position: relative;
   display: inline-grid;
@@ -110,9 +112,6 @@ button {
   border-radius: 999px;
 }
 
-.logo-mark::before,
-.logo-mark::after,
-.logo-mark span,
 .mini-logo::before,
 .mini-logo::after {
   position: absolute;
@@ -123,19 +122,64 @@ button {
   opacity: 0.9;
 }
 
-.logo-mark::before,
 .mini-logo::before {
   rotate: 45deg;
 }
 
-.logo-mark::after,
 .mini-logo::after {
   rotate: -25deg;
 }
 
-.logo-mark span {
-  rotate: 75deg;
-  transform-origin: center;
+.logo-symbol {
+  position: relative;
+  flex: 0 0 46px;
+  width: 46px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.logo-symbol img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 62px;
+  height: auto;
+  display: block;
+  transform: translate(-50%, -50%);
+}
+
+.logo-lockup {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateY(1px);
+}
+
+.logo-word {
+  display: block;
+  color: #8d8d8d;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 0.76;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.logo-word span {
+  color: #d80b22;
+}
+
+.logo-subtitle {
+  display: block;
+  margin-top: 7px;
+  color: #8d8d8d;
+  font-size: 8.7px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -1427,7 +1471,53 @@ button {
   }
 
   .logo {
-    font-size: 24px;
+    gap: 5px;
+    height: 36px;
+    max-width: 138px;
+  }
+
+  .logo-symbol {
+    flex-basis: 31px;
+    width: 31px;
+    height: 34px;
+  }
+
+  .logo-symbol img {
+    width: 43px;
+  }
+
+  .logo-word {
+    font-size: 25px;
+  }
+
+  .logo-subtitle {
+    margin-top: 5px;
+    font-size: 6px;
+  }
+
+  .footer-main .logo {
+    gap: 7px;
+    height: 40px;
+    max-width: 260px;
+  }
+
+  .footer-main .logo-symbol {
+    flex-basis: 46px;
+    width: 46px;
+    height: 40px;
+  }
+
+  .footer-main .logo-symbol img {
+    width: 62px;
+  }
+
+  .footer-main .logo-word {
+    font-size: 36px;
+  }
+
+  .footer-main .logo-subtitle {
+    margin-top: 7px;
+    font-size: 8.7px;
   }
 
   .hero {

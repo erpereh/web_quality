@@ -57,10 +57,15 @@ function useReveal() {
 function Logo({ huge = false }) {
   return (
     <div className={huge ? "logo logo-huge" : "logo"} aria-label="Quality Solution Consulting">
-      <span className="logo-mark" aria-hidden="true">
-        <span />
+      <span className="logo-symbol" aria-hidden="true">
+        <img src="/logo.png" alt="" />
       </span>
-      <span>quality solution</span>
+      <span className="logo-lockup" aria-hidden="true">
+        <span className="logo-word">
+          QUAL<span>ITY</span>
+        </span>
+        <span className="logo-subtitle">SOLUTION CONSULTING</span>
+      </span>
     </div>
   );
 }
