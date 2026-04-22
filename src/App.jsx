@@ -1,30 +1,30 @@
 import React, { useEffect, useState } from "react";
 
-const partners = ["BlackRock", "Revolut", "JPMorgan Chase", "Parmenion", "↗ wise"];
+const partners = ["+11 años de experiencia", "+10K nóminas gestionadas", "Partner oficial Cegid", "Partner Oracle HCM"];
 
 const firmFeatures = [
-  "Day plan",
-  "AI search",
-  "AI meeting summaries",
-  "Document digitisation",
-  "Suitability report",
-  "Portfolio aggregation",
+  "Diagnóstico de procesos",
+  "ERP cloud SaaS",
+  "Dato único",
+  "BI e IA integrada",
+  "Integraciones abiertas",
+  "VeriFactu y RGPD",
 ];
 
 const consolidatorFeatures = [
-  "Multi-firm oversight",
-  "Rapid onboarding",
-  "Document digitisation",
-  "Data segregation",
-  "Role-based access",
-  "Audit trails",
-  "Everything for Independent Firms and more",
+  "Consultoría funcional",
+  "Implantación a medida",
+  "Formación de usuarios",
+  "Gestión del cambio",
+  "Soporte continuo",
+  "Evolutivos",
+  "Integraciones con sistemas externos",
 ];
 
 const footerLinks = {
-  Product: ["AI Practice Management", "Execution & Custody"],
-  Obsidian: ["Resources", "About Us", "Careers", "Contact Us", "Linkedin"],
-  Others: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+  Soluciones: ["Cegid XRP Enterprise", "Cegid HCM", "Oracle HCM"],
+  Servicios: ["Consultoría", "Implantación", "Integraciones", "Soporte"],
+  Empresa: ["Quiénes somos", "Blog", "Contacto"],
 };
 
 function useReveal() {
@@ -56,11 +56,11 @@ function useReveal() {
 
 function Logo({ huge = false }) {
   return (
-    <div className={huge ? "logo logo-huge" : "logo"} aria-label="Obsidian">
+    <div className={huge ? "logo logo-huge" : "logo"} aria-label="Quality Solution Consulting">
       <span className="logo-mark" aria-hidden="true">
         <span />
       </span>
-      <span>obsidian</span>
+      <span>quality solution</span>
     </div>
   );
 }
@@ -79,17 +79,17 @@ function Navbar() {
   return (
     <header className={isScrolled ? "nav is-scrolled" : "nav"}>
       <Logo />
-      <nav className="nav-links" aria-label="Main navigation">
+      <nav className="nav-links" aria-label="Navegación principal">
         <div className="nav-menu-item">
           <button className="nav-link-trigger" type="button" aria-haspopup="true">
-            What we offer <span className="chevron" aria-hidden="true" />
+            Soluciones <span className="chevron" aria-hidden="true" />
           </button>
-          <div className="mega-menu" role="menu" aria-label="What we offer">
+          <div className="mega-menu" role="menu" aria-label="Soluciones">
             <div className="mega-inner">
               <a className="mega-card" href="#offer" role="menuitem">
                 <span className="mega-visual mega-orb" aria-hidden="true" />
-                <strong>AI Practice Management</strong>
-                <span>Your clients, meetings and tasks - captured by AI, searchable in seconds, ready to act on.</span>
+                <strong>Cegid XRP Enterprise</strong>
+                <span>ERP cloud para conectar finanzas, compras, ventas, almacén, producción, BI e IA.</span>
               </a>
               <a className="mega-card" href="#pricing" role="menuitem">
                 <span className="mega-visual mega-chart" aria-hidden="true">
@@ -102,18 +102,18 @@ function Navbar() {
                   <b />
                   <b />
                 </span>
-                <strong>Execution &amp; Custody</strong>
-                <span>Trade, rebalance, and custody - all in one place. With instant account opening.</span>
+                <strong>Soluciones HCM</strong>
+                <span>Nómina, control horario, talento, portal del empleado y Oracle HCM para equipos de personas.</span>
               </a>
             </div>
           </div>
         </div>
-        <a href="#offer">What we offer <span>⌄</span></a>
-        <a href="#for">Who's it for <span>⌄</span></a>
-        <a href="#pricing">Pricing</a>
-        <a href="#about">About</a>
+        <a href="#offer">Soluciones <span>⌄</span></a>
+        <a href="#for">Para quién <span>⌄</span></a>
+        <a href="#pricing">Servicios</a>
+        <a href="#about">Empresa</a>
       </nav>
-      <a className="nav-cta" href="#start">Get started</a>
+      <a className="nav-cta" href="#start">Solicita una demo</a>
     </header>
   );
 }
@@ -132,32 +132,32 @@ function HeroDashboard() {
       </aside>
       <div className="dash-main">
         <div className="dash-top">
-          <span>←</span>
-          <span>Mon, 22 Sept 2025</span>
-          <span>→</span>
-          <span className="history">◷ Chat history</span>
+          <span>ERP</span>
+          <span>Operativa conectada</span>
+          <span>HCM</span>
+          <span className="history">Panel de dirección</span>
         </div>
-        <h2>Welcome to your day, Sophie</h2>
+        <h2>Controla tu negocio desde un dato único</h2>
         <div className="dash-actions">
-          <button>◦ Record meeting</button>
-          <button>Add ⌄</button>
+          <button>Ver KPIs</button>
+          <button>Demo ⌄</button>
         </div>
         <div className="dash-grid">
           <section>
-            <h3>Meetings</h3>
-            {["Emily Carter - first meeting", "Jake Elroy Q3 review", "Lunch"].map((item, index) => (
+            <h3>Operaciones</h3>
+            {["Pedidos pendientes", "Facturas OCR", "Stock crítico"].map((item, index) => (
               <div className="meeting-row" key={item}>
-                <span>{index + 10} AM</span>
+                <span>{index + 12}</span>
                 <strong>{item}</strong>
               </div>
             ))}
           </section>
           <section>
-            <h3>Tasks</h3>
+            <h3>Personas</h3>
             {[
-              "Book annual review for the Mitchell household",
-              "Review risk assessment questionnaire template",
-              "Send fund switch confirmation to D. Okonkwo",
+              "Nómina mensual validada",
+              "Turnos y ausencias sincronizados",
+              "Analítica de talento actualizada",
             ].map((item) => (
               <div className="task-row" key={item}>
                 <span />
@@ -178,17 +178,17 @@ function Hero() {
       <div className="empty-rock empty-rock-right" aria-hidden="true" />
       <div className="hero-content">
         <h1 className="hero-title" data-reveal>
-          The all-in-one platform{" "}
+          Tu negocio,{" "}
           <br />
-          for financial advisers
+          unificado y bajo control.
         </h1>
         <p className="hero-copy" data-reveal>
-          AI-powered practice management available now - with{" "}
+          Implantamos Cegid XRP Enterprise, Cegid HCM y Oracle HCM{" "}
           <br />
-          integrated custody and execution launching soon.
+          para crecer sin excels, silos ni frenos operativos.
         </p>
         <a className="hero-cta" href="#start" data-reveal>
-          Get Started For Free
+          Solicita una demo
         </a>
       </div>
       <HeroDashboard />
@@ -199,7 +199,7 @@ function Hero() {
 function SocialProof() {
   return (
     <section className="social" data-reveal>
-      <p>Made by the people behind</p>
+      <p>Consultoría tecnológica especializada en ERP y gestión de personas</p>
       <div className="partner-row">
         <div className="partner-track">
           {[0, 1].map((group) => (
@@ -222,9 +222,9 @@ function ProductCard({ label, title, copy, type }) {
         {type === "orb" ? (
           <div className="recording-panel">
             <div>
-              <span>02:04 Recording meeting</span>
-              <strong>Ⅱ</strong>
-              <span>Stop</span>
+              <span>Cegid XRP Enterprise</span>
+              <strong>ERP</strong>
+              <span>Cloud</span>
             </div>
             <div className="waveform">
               {Array.from({ length: 25 }).map((_, index) => (
@@ -235,18 +235,18 @@ function ProductCard({ label, title, copy, type }) {
         ) : (
           <div className="portfolio-panel">
             <header>
-              <span>Return by fund</span>
-              <span>Closed: Jan 7, 08:11 EST</span>
+              <span>Gestión de personas</span>
+              <span>Nómina · Tiempo · Talento</span>
             </header>
-            <strong>18.5%</strong>
-            <svg viewBox="0 0 520 160" role="img" aria-label="Decorative green chart">
+            <strong>+10K nóminas / mes</strong>
+            <svg viewBox="0 0 520 160" role="img" aria-label="Gráfico decorativo">
               <polyline points="0,95 30,70 58,82 88,65 118,91 148,84 178,108 208,98 238,117 268,109 298,121 328,102 358,108 388,92 418,82 448,86 478,72 520,28" />
             </svg>
             <div className="positions">
-              <span>Positions</span><span>Current</span><span>Target</span><span>Trade size</span>
-              <span>SPX</span><span>45.0%</span><span>50.0%</span><b>+5%</b>
-              <span>Nasdaq 100</span><span>35.0%</span><span>50.0%</span><b>+5%</b>
-              <span>DAX</span><span>20.0%</span><span>50.0%</span><em>-15%</em>
+              <span>Módulo</span><span>Estado</span><span>Dato</span><span>Impacto</span>
+              <span>Nómina</span><span>Validada</span><span>100%</span><b>OK</b>
+              <span>Turnos</span><span>Activo</span><span>24/7</span><b>OK</b>
+              <span>Talento</span><span>Medido</span><span>360</span><em>Live</em>
             </div>
           </div>
         )}
@@ -254,7 +254,7 @@ function ProductCard({ label, title, copy, type }) {
       <p className={label === "Free" ? "label free" : "label"}>{label}</p>
       <h3>{title}</h3>
       <p>{copy}</p>
-      <a href="#learn">Learn more</a>
+      <a href="#learn">Saber más</a>
     </article>
   );
 }
@@ -262,18 +262,18 @@ function ProductCard({ label, title, copy, type }) {
 function OfferSection() {
   return (
     <section className="section offer" id="offer">
-      <h2 data-reveal>Save Time &amp; Grow AUM</h2>
+      <h2 data-reveal>Software de gestión empresarial y RRHH para crecer con control</h2>
       <div className="product-grid">
         <ProductCard
-          label="Free"
-          title="AI Practice Management"
-          copy="AI meeting notes, CRM, and portfolio aggregation all in one free module."
+          label="ERP cloud"
+          title="Cegid XRP Enterprise"
+          copy="Finanzas, compras, ventas, almacén, producción, proyectos, BI e IA en una plataforma SaaS para empresa mediana."
           type="orb"
         />
         <ProductCard
-          label="Coming Soon"
-          title="Execution & Custody"
-          copy="Trade, rebalance, and custody - all in one place. With instant account opening."
+          label="HCM"
+          title="Soluciones HCM"
+          copy="Nómina, control horario, talento, portal del empleado y Oracle HCM para departamentos de personas."
           type="rock"
         />
       </div>
@@ -285,17 +285,17 @@ function ScaleSection() {
   return (
     <section className="section split-section" id="for">
       <div className="split-copy" data-reveal>
-        <h2>The platform that<br />scales your firm</h2>
+        <h2>Las señales de que<br />tu empresa necesita un ERP real</h2>
         <div className="feature-block">
-          <h3>Independent firms</h3>
-          <p>Spend less time on admin and more time delivering advice that matters.</p>
+          <h3>Menos hojas de cálculo. Más dato fiable.</h3>
+          <p>Conectamos procesos, equipos y sistemas para que la dirección trabaje con información actualizada.</p>
         </div>
         <ul className="feature-list">
           {firmFeatures.map((feature, index) => (
             <li className={index === firmFeatures.length - 1 ? "active" : ""} key={feature}>
               {feature}
               {index === firmFeatures.length - 1 && (
-                <span>Personalized drafts that match your tone.</span>
+                <span>Cumplimiento y procesos preparados para operar con rigor en España.</span>
               )}
             </li>
           ))}
@@ -304,15 +304,15 @@ function ScaleSection() {
       <div className="wide-placeholder email-placeholder" data-reveal>
         <div className="email-panel shell-float">
           <header>
-            <strong>Daniel Morris</strong>
-            <span>&lt;daniel@ventures.com&gt;</span>
-            <b>✓ Recognised</b>
+            <strong>Diagnóstico ERP</strong>
+            <span>&lt;info@qualitysolution.es&gt;</span>
+            <b>Listo</b>
           </header>
-          <h4>✳ Suggested Replies</h4>
-          <p>1. Thanks for flagging this. Given the recent volatility, it's completely understandable to revisit how things are positioned.</p>
-          <button>Use</button>
-          <p>2. I appreciate you reaching out. While markets have been more volatile recently, your portfolio is behaving as expected.</p>
-          <button>Use</button>
+          <h4>Áreas detectadas</h4>
+          <p>1. Compras, ventas y almacén trabajan con datos distintos. Recomendación: dato único en XRP.</p>
+          <button>Analizar</button>
+          <p>2. Nómina y control horario requieren integración directa para evitar doble introducción.</p>
+          <button>Priorizar</button>
         </div>
       </div>
     </section>
@@ -326,30 +326,30 @@ function GrowthSection() {
         <div className="conversion-cards">
           <div className="glass-card">
             <span className="doc-icon" />
-            <strong>converting..</strong>
-            <p>Preparing structured data across the organisation.</p>
+            <strong>analizando</strong>
+            <p>Procesos, integraciones y modelo de datos.</p>
             <i />
           </div>
           <div className="glass-card">
             <span className="doc-icon" />
-            <strong>converted</strong>
-            <p>Preparing structured data across the organisation.</p>
-            <button>Show</button>
+            <strong>implantado</strong>
+            <p>Usuarios formados y soporte continuo.</p>
+            <button>Ver</button>
           </div>
         </div>
       </div>
       <div className="split-copy compact" data-reveal>
-        <h2>Unlock rapid growth</h2>
+        <h2>No somos solo distribuidores de software</h2>
         <div className="feature-block">
-          <h3>Consolidators</h3>
-          <p>Unify firms, data, and controls to scale faster - without operational drag.</p>
+          <h3>Implantamos resultados</h3>
+          <p>Acompañamos cada fase: consultoría previa, implantación, formación, integraciones y evolución continua.</p>
         </div>
         <ul className="feature-list">
           {consolidatorFeatures.map((feature, index) => (
             <li className={index === 2 ? "active" : ""} key={feature}>
               {feature}
               {index === 2 && (
-                <span>Convert paper records into searchable, structured data across the organisation.</span>
+                <span>Conectamos Cegid, Oracle HCM, SGA, MES, Office 365, bancos, AEAT y e-commerce.</span>
               )}
             </li>
           ))}
@@ -362,12 +362,12 @@ function GrowthSection() {
 function RegulationSection() {
   return (
     <section className="section regulated" id="about">
-      <h2 data-reveal>Built for regulated<br />environments</h2>
+      <h2 data-reveal>Cloud, cumplimiento<br />e integraciones</h2>
       <div className="reg-grid" data-reveal>
         {[
-          ["▱", "Built to industry standards", "FCA authorisation in progress. SOC2 audit underway."],
-          ["▱", "Security by default", "Two-factor authentication for every user."],
-          ["▱", "Zero data leakage", "Built in-house. Hosted entirely on Obsidian's infrastructure."],
+          ["▱", "Cloud SaaS", "Actualizaciones continuas y acceso seguro sin infraestructura propia."],
+          ["▱", "RGPD y VeriFactu", "Procesos preparados para normativa laboral, fiscal y de protección de datos."],
+          ["▱", "Integración total", "APIs y conectividad con SGA, MES, Office 365, bancos, AEAT y e-commerce."],
         ].map(([icon, title, copy]) => (
           <article key={title}>
             <span>{icon}</span>
@@ -385,31 +385,31 @@ function Footer() {
     <footer className="footer">
       <div className="legal-row">
         <p>
-          Obsidian Securities Limited is not yet authorised by the Financial Conduct Authority.
+          Agenda una sesión sin compromiso y te mostramos cómo Cegid XRP, Cegid HCM u Oracle HCM
           <br />
-          Prior to becoming authorised no information regarding the future provision of custody and execution services
+          pueden encajar en tu operativa actual, tus integraciones y tus objetivos de crecimiento.
           <br />
-          is intended as an invitation or inducement to apply for these services, nor does it constitute financial advice.
+          Email: info@qualitysolution.es · Teléfono: (+34) 609 10 05 38
         </p>
-        <div>Powered by <span className="rockcore">◎ RockCore</span></div>
+        <div>Partner <span className="rockcore">Cegid · Oracle HCM</span></div>
       </div>
       <div className="footer-main">
         <div>
           <Logo />
           <p>
-            Obsidian Technologies Limited is a company registered in England &amp; Wales with
+            Quality Solution Consulting es una consultora tecnológica especializada en ERP, HCM,
             <br />
-            company number 1632982. Our office is located at 30 Churchill Place, Canary
+            integraciones y soporte continuo para empresas medianas en España.
             <br />
-            Wharf, London, England, E14 5RE.
+            Trabajamos con Cegid XRP Enterprise, Cegid HCM y Oracle HCM.
           </p>
           <div className="badges">
-            <span>GDP</span>
-            <span>→⌕</span>
+            <span>ERP</span>
+            <span>HCM</span>
           </div>
-          <p>© 2026 Obsidian Technologies Limited. Obsidian is the registered trademark of Obsidian Technologies Limited.</p>
+          <p>© 2026 Quality Solution Consulting. Todos los derechos reservados.</p>
         </div>
-        <nav className="footer-links" aria-label="Footer navigation">
+        <nav className="footer-links" aria-label="Navegación de pie">
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
               <h4>{title}</h4>
@@ -420,7 +420,7 @@ function Footer() {
           ))}
         </nav>
       </div>
-      <div className="wordmark" aria-hidden="true">obsidian</div>
+      <div className="wordmark" aria-hidden="true">quality</div>
     </footer>
   );
 }
