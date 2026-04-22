@@ -114,7 +114,7 @@ function useScrollSteps(sectionRef, itemCount) {
 
       const rect = section.getBoundingClientRect();
       const scrollableDistance = Math.max(rect.height - window.innerHeight, 1);
-      const progress = clamp((-rect.top + window.innerHeight * 0.16) / scrollableDistance);
+      const progress = clamp((-rect.top + window.innerHeight * 0.28) / scrollableDistance);
       const nextStep = Math.min(itemCount - 1, Math.floor(progress * itemCount));
 
       if (nextStep !== currentStep) {

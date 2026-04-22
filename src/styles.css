@@ -1243,12 +1243,12 @@ button {
   --story-top: 96px;
   position: relative;
   align-items: start;
-  min-height: 320vh;
+  min-height: 260vh;
   padding-bottom: 26vh;
 }
 
 .growth.scroll-story {
-  min-height: 360vh;
+  min-height: 300vh;
 }
 
 .story-copy,
