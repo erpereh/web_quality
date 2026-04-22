@@ -219,41 +219,11 @@ function SocialProof() {
   );
 }
 
-function ProductCard({ label, title, copy, type }) {
+function ProductCard({ label, title, copy, imageSrc, imageAlt }) {
   return (
     <article className="product-card" data-reveal>
-      <div className={`media-placeholder ${type}`}>
-        {type === "orb" ? (
-          <div className="recording-panel">
-            <div>
-              <span>Cegid XRP Enterprise</span>
-              <strong>ERP</strong>
-              <span>Cloud</span>
-            </div>
-            <div className="waveform">
-              {Array.from({ length: 25 }).map((_, index) => (
-                <i key={index} style={{ "--h": `${18 + ((index * 11) % 38)}px` }} />
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div className="portfolio-panel">
-            <header>
-              <span>Gestión de personas</span>
-              <span>Nómina · Tiempo · Talento</span>
-            </header>
-            <strong>+10K nóminas / mes</strong>
-            <svg viewBox="0 0 520 160" role="img" aria-label="Gráfico decorativo">
-              <polyline points="0,95 30,70 58,82 88,65 118,91 148,84 178,108 208,98 238,117 268,109 298,121 328,102 358,108 388,92 418,82 448,86 478,72 520,28" />
-            </svg>
-            <div className="positions">
-              <span>Módulo</span><span>Estado</span><span>Dato</span><span>Impacto</span>
-              <span>Nómina</span><span>Validada</span><span>100%</span><b>OK</b>
-              <span>Turnos</span><span>Activo</span><span>24/7</span><b>OK</b>
-              <span>Talento</span><span>Medido</span><span>360</span><em>Live</em>
-            </div>
-          </div>
-        )}
+      <div className="media-placeholder">
+        <img src={imageSrc} alt={imageAlt} />
       </div>
       <p className={label === "Free" ? "label free" : "label"}>{label}</p>
       <h3>{title}</h3>
@@ -272,13 +242,15 @@ function OfferSection() {
           label="ERP cloud"
           title="Cegid XRP Enterprise"
           copy="Finanzas, compras, ventas, almacén, producción, proyectos, BI e IA en una plataforma SaaS para empresa mediana."
-          type="orb"
+          imageSrc="/enterprise.png"
+          imageAlt="Vista de Cegid XRP Enterprise"
         />
         <ProductCard
           label="HCM"
           title="Soluciones HCM"
           copy="Nómina, control horario, talento, portal del empleado y Oracle HCM para departamentos de personas."
-          type="rock"
+          imageSrc="/nomina.png"
+          imageAlt="Vista de soluciones de nómina y HCM"
         />
       </div>
     </section>

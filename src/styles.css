@@ -849,6 +849,13 @@ button {
     linear-gradient(180deg, #101010, #222 45%, #151515);
 }
 
+.media-placeholder img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .media-placeholder.orb::before {
   position: absolute;
   left: 80px;
