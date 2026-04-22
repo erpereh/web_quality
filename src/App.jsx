@@ -278,18 +278,7 @@ function ScaleSection() {
         </ul>
       </div>
       <div className="wide-placeholder email-placeholder" data-reveal>
-        <div className="email-panel shell-float">
-          <header>
-            <strong>Diagnóstico ERP</strong>
-            <span>&lt;info@qualitysolution.es&gt;</span>
-            <b>Listo</b>
-          </header>
-          <h4>Áreas detectadas</h4>
-          <p>1. Compras, ventas y almacén trabajan con datos distintos. Recomendación: dato único en XRP.</p>
-          <button>Analizar</button>
-          <p>2. Nómina y control horario requieren integración directa para evitar doble introducción.</p>
-          <button>Priorizar</button>
-        </div>
+        <img src="/xrp-interfaz-monitor-oficina.jpg" alt="Interfaz XRP en monitor de oficina" />
       </div>
     </section>
   );
@@ -299,20 +288,7 @@ function GrowthSection() {
   return (
     <section className="section split-section growth" id="pricing">
       <div className="wide-placeholder conversion-placeholder" data-reveal>
-        <div className="conversion-cards">
-          <div className="glass-card">
-            <span className="doc-icon" />
-            <strong>analizando</strong>
-            <p>Procesos, integraciones y modelo de datos.</p>
-            <i />
-          </div>
-          <div className="glass-card">
-            <span className="doc-icon" />
-            <strong>implantado</strong>
-            <p>Usuarios formados y soporte continuo.</p>
-            <button>Ver</button>
-          </div>
-        </div>
+        <img src="/ingenieria-tablet-energia.jpg" alt="Equipo de ingeniería trabajando con una tablet" />
       </div>
       <div className="split-copy compact" data-reveal>
         <h2>No somos solo distribuidores de software</h2>
