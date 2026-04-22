@@ -1,24 +1,63 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const partners = ["+11 años de experiencia", "+10K nóminas gestionadas", "Partner oficial Cegid", "Partner Oracle HCM"];
 
 const firmFeatures = [
-  "Diagnóstico de procesos",
-  "ERP cloud SaaS",
-  "Dato único",
-  "BI e IA integrada",
-  "Integraciones abiertas",
-  "VeriFactu y RGPD",
+  {
+    title: "Diagnóstico de procesos",
+    copy: "Detectamos silos, tareas duplicadas y puntos donde el dato pierde fiabilidad.",
+  },
+  {
+    title: "ERP cloud SaaS",
+    copy: "Centraliza finanzas, compras, ventas, almacén, producción y proyectos en una plataforma evolutiva.",
+  },
+  {
+    title: "Dato único",
+    copy: "Dirección, operaciones y administración trabajan sobre la misma información actualizada.",
+  },
+  {
+    title: "BI e IA integrada",
+    copy: "Convierte la operativa diaria en indicadores, alertas y decisiones accionables.",
+  },
+  {
+    title: "Integraciones abiertas",
+    copy: "Conecta SGA, MES, Office 365, bancos, AEAT y e-commerce sin romper tu flujo actual.",
+  },
+  {
+    title: "VeriFactu y RGPD",
+    copy: "Cumplimiento y procesos preparados para operar con rigor en España.",
+  },
 ];
 
 const consolidatorFeatures = [
-  "Consultoría funcional",
-  "Implantación a medida",
-  "Formación de usuarios",
-  "Gestión del cambio",
-  "Soporte continuo",
-  "Evolutivos",
-  "Integraciones con sistemas externos",
+  {
+    title: "Consultoría funcional",
+    copy: "Traducimos procesos reales en una implantación útil, no en una demo bonita.",
+  },
+  {
+    title: "Implantación a medida",
+    copy: "Configuramos Cegid XRP, Cegid HCM u Oracle HCM según equipos, permisos y objetivos.",
+  },
+  {
+    title: "Formación de usuarios",
+    copy: "Acompañamos a cada perfil para que adopte la herramienta con seguridad desde el primer día.",
+  },
+  {
+    title: "Gestión del cambio",
+    copy: "Reducimos fricción interna con fases claras, responsables y comunicación operativa.",
+  },
+  {
+    title: "Soporte continuo",
+    copy: "Seguimos cerca después del arranque para resolver incidencias y ajustar el sistema.",
+  },
+  {
+    title: "Evolutivos",
+    copy: "Mejoramos el ERP y HCM a medida que crecen la empresa, los procesos y la normativa.",
+  },
+  {
+    title: "Integraciones con sistemas externos",
+    copy: "Conectamos Cegid, Oracle HCM, SGA, MES, Office 365, bancos, AEAT y e-commerce.",
+  },
 ];
 
 const footerLinks = {
@@ -52,6 +91,61 @@ function useReveal() {
       observer.disconnect();
     };
   }, []);
+}
+
+function useScrollSteps(sectionRef, itemCount) {
+  const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!section || itemCount < 2 || reducedMotion) {
+      return undefined;
+    }
+
+    let frame = 0;
+    let currentStep = -1;
+
+    const clamp = (value) => Math.min(Math.max(value, 0), 1);
+
+    const updateStep = () => {
+      frame = 0;
+
+      const rect = section.getBoundingClientRect();
+      const scrollableDistance = Math.max(rect.height - window.innerHeight, 1);
+      const progress = clamp((-rect.top + window.innerHeight * 0.16) / scrollableDistance);
+      const nextStep = Math.min(itemCount - 1, Math.floor(progress * itemCount));
+
+      if (nextStep !== currentStep) {
+        currentStep = nextStep;
+        setActiveStep(nextStep);
+      }
+    };
+
+    const requestUpdate = () => {
+      if (frame) {
+        return;
+      }
+
+      frame = window.requestAnimationFrame(updateStep);
+    };
+
+    updateStep();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    return () => {
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
+  }, [itemCount, sectionRef]);
+
+  return activeStep;
 }
 
 function Logo({ huge = false }) {
@@ -258,26 +352,40 @@ function OfferSection() {
 }
 
 function ScaleSection() {
+  const sectionRef = useRef(null);
+  const activeStep = useScrollSteps(sectionRef, firmFeatures.length);
+  const storyStyle = {
+    "--active-step": activeStep,
+    "--step-count": firmFeatures.length,
+    "--story-progress": `${((activeStep + 1) / firmFeatures.length) * 100}%`,
+    "--media-shift": `${activeStep * -5}px`,
+    "--media-scale": 1.035 + activeStep * 0.006,
+  };
+
   return (
-    <section className="section split-section" id="for">
-      <div className="split-copy" data-reveal>
+    <section
+      className="section split-section scroll-story"
+      id="for"
+      ref={sectionRef}
+      style={storyStyle}
+    >
+      <div className="split-copy story-copy" data-reveal>
         <h2>Las señales de que<br />tu empresa necesita un ERP real</h2>
         <div className="feature-block">
           <h3>Menos hojas de cálculo. Más dato fiable.</h3>
           <p>Conectamos procesos, equipos y sistemas para que la dirección trabaje con información actualizada.</p>
         </div>
-        <ul className="feature-list">
+        <ul className="feature-list scroll-feature-list">
           {firmFeatures.map((feature, index) => (
-            <li className={index === firmFeatures.length - 1 ? "active" : ""} key={feature}>
-              {feature}
-              {index === firmFeatures.length - 1 && (
-                <span>Cumplimiento y procesos preparados para operar con rigor en España.</span>
-              )}
+            <li className={index === activeStep ? "active" : ""} key={feature.title}>
+              <span className="feature-count">{String(index + 1).padStart(2, "0")}</span>
+              <strong>{feature.title}</strong>
+              <p>{feature.copy}</p>
             </li>
           ))}
         </ul>
       </div>
-      <div className="wide-placeholder email-placeholder" data-reveal>
+      <div className="wide-placeholder email-placeholder story-media" data-reveal>
         <img src="/xrp-interfaz-monitor-oficina.jpg" alt="Interfaz XRP en monitor de oficina" />
       </div>
     </section>
@@ -285,24 +393,38 @@ function ScaleSection() {
 }
 
 function GrowthSection() {
+  const sectionRef = useRef(null);
+  const activeStep = useScrollSteps(sectionRef, consolidatorFeatures.length);
+  const storyStyle = {
+    "--active-step": activeStep,
+    "--step-count": consolidatorFeatures.length,
+    "--story-progress": `${((activeStep + 1) / consolidatorFeatures.length) * 100}%`,
+    "--media-shift": `${activeStep * -4}px`,
+    "--media-scale": 1.025 + activeStep * 0.005,
+  };
+
   return (
-    <section className="section split-section growth" id="pricing">
-      <div className="wide-placeholder conversion-placeholder" data-reveal>
+    <section
+      className="section split-section growth scroll-story"
+      id="pricing"
+      ref={sectionRef}
+      style={storyStyle}
+    >
+      <div className="wide-placeholder conversion-placeholder story-media" data-reveal>
         <img src="/ingenieria-tablet-energia.jpg" alt="Equipo de ingeniería trabajando con una tablet" />
       </div>
-      <div className="split-copy compact" data-reveal>
+      <div className="split-copy compact story-copy" data-reveal>
         <h2>No somos solo distribuidores de software</h2>
         <div className="feature-block">
           <h3>Implantamos resultados</h3>
           <p>Acompañamos cada fase: consultoría previa, implantación, formación, integraciones y evolución continua.</p>
         </div>
-        <ul className="feature-list">
+        <ul className="feature-list scroll-feature-list">
           {consolidatorFeatures.map((feature, index) => (
-            <li className={index === 2 ? "active" : ""} key={feature}>
-              {feature}
-              {index === 2 && (
-                <span>Conectamos Cegid, Oracle HCM, SGA, MES, Office 365, bancos, AEAT y e-commerce.</span>
-              )}
+            <li className={index === activeStep ? "active" : ""} key={feature.title}>
+              <span className="feature-count">{String(index + 1).padStart(2, "0")}</span>
+              <strong>{feature.title}</strong>
+              <p>{feature.copy}</p>
             </li>
           ))}
         </ul>
