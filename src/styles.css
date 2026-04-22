@@ -480,43 +480,6 @@ button {
   pointer-events: none;
 }
 
-.empty-rock {
-  position: absolute;
-  z-index: 1;
-  width: 395px;
-  height: 515px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.02) 55%, rgba(0, 0, 0, 0.85)),
-    #101010;
-  opacity: 0.8;
-  filter: contrast(1.2);
-  clip-path: polygon(8% 24%, 42% 8%, 81% 24%, 100% 66%, 76% 100%, 23% 91%, 0 58%);
-}
-
-.empty-rock::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background:
-    linear-gradient(72deg, transparent 0 42%, rgba(255, 106, 0, 0.22) 43%, transparent 45%),
-    linear-gradient(130deg, transparent 0 58%, rgba(255, 255, 255, 0.12) 60%, transparent 62%);
-  opacity: 0.45;
-}
-
-.empty-rock-left {
-  left: -34px;
-  bottom: 72px;
-  rotate: -16deg;
-}
-
-.empty-rock-right {
-  right: -8px;
-  bottom: 76px;
-  width: 432px;
-  height: 598px;
-  rotate: 10deg;
-}
-
 .hero-content {
   position: relative;
   z-index: 5;
@@ -1477,10 +1440,6 @@ button {
   .hero-copy br,
   .hero-title br {
     display: none;
-  }
-
-  .empty-rock {
-    opacity: 0.35;
   }
 
   .dashboard {
