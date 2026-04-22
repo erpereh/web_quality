@@ -494,7 +494,6 @@ function Footer() {
           ))}
         </nav>
       </div>
-      <div className="wordmark" aria-hidden="true">quality</div>
     </footer>
   );
 }
