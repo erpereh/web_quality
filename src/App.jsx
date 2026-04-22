@@ -174,6 +174,7 @@ function HeroDashboard() {
 function Hero() {
   return (
     <section className="hero">
+      <video className="hero-video" src="/hero.mp4" autoPlay muted loop playsInline aria-hidden="true" />
       <div className="empty-rock empty-rock-left" aria-hidden="true" />
       <div className="empty-rock empty-rock-right" aria-hidden="true" />
       <div className="hero-content">
